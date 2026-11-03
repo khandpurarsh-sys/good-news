@@ -44,11 +44,17 @@ final class RSSEngineTests: XCTestCase {
     // A4: pubDate variants - missing/invalid kept, no crash, no epoch dates
     func testF4DateVariants() throws {
         let items = try RSSEngine.parse(data: fixture("F4"), spec: indiaSpec)
-        XCTAssertFalse(items.isEmpty)
+        XCTAssertEqual(items.count, 4, "missing/invalid-date items must be kept, not dropped")
         for item in items {
             if let d = item.date {
                 XCTAssertGreaterThan(d.timeIntervalSince1970, 1_000_000_000, "epoch-1970 style date leaked")
             }
+        }
+        let merged = RSSEngine.dedupe(items)
+        let firstUndated = merged.firstIndex { $0.date == nil }
+        let lastDated = merged.lastIndex { $0.date != nil }
+        if let firstUndated, let lastDated {
+            XCTAssertLessThan(lastDated, firstUndated, "undated items must sort after dated items")
         }
     }
 
@@ -57,6 +63,7 @@ final class RSSEngineTests: XCTestCase {
         let items = try RSSEngine.parse(data: fixture("F5"), spec: indiaSpec)
         XCTAssertFalse(items.isEmpty)
         let deduped = RSSEngine.dedupe(items)
+        XCTAssertEqual(deduped.count, 3, "fixture expects dup-401 once, dup-402 once (same link), noguid-403 once")
         let ids = deduped.map { $0.id }
         XCTAssertEqual(ids.count, Set(ids).count, "duplicate rows after dedupe")
     }
