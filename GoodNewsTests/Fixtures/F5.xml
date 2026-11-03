@@ -7,4 +7,3 @@
 <item><title>Same link different guid copy</title><link>https://example.net/dup-402</link><guid>guid-402b</guid></item>
 <item><title>No guid item</title><link>https://example.net/noguid-403</link></item>
 </channel></rss>
-Expected: 3 rendered items (dup-401 once, dup-402 once, noguid-403 once).
