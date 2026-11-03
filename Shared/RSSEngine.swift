@@ -103,10 +103,13 @@ final class RSSEngine {
     static func dedupe(_ items: [FeedItem]) -> [FeedItem] {
         var byKey: [String: FeedItem] = [:]
         var titleIndex: [String: String] = [:]
+        var linkIndex: [String: String] = [:]
         let preferred = ["The Hindu", "Times of India", "NDTV", "Indian Express", "BBC News", "Al Jazeera", "The Guardian", "NPR"]
         for item in items {
             let norm = normalizedTitle(item.title)
-            let key = titleIndex[norm] ?? item.id
+            let linkKey = item.link?.absoluteString
+            // C2: same canonical link (different guid) collapses to the same row; C3: same normalized title
+            let key = titleIndex[norm] ?? linkKey.flatMap { linkIndex[$0] } ?? item.id
             if let existing = byKey[key] {
                 // C3: keep earliest pubDate; on tie prefer earlier source in the preferred order
                 let existingRank = preferred.firstIndex(of: existing.source) ?? .max
@@ -120,6 +123,7 @@ final class RSSEngine {
                 byKey[key] = item
             }
             titleIndex[norm] = key
+            if let linkKey { linkIndex[linkKey] = key }
         }
         return byKey.values.sorted { ($0.date ?? .distantPast) > ($1.date ?? .distantPast) }
     }
@@ -202,7 +206,7 @@ private final class FeedXMLDelegate: NSObject, XMLParserDelegate {
         let value = buffer.trimmingCharacters(in: .whitespacesAndNewlines)
         switch e {
         case "title": if title.isEmpty { title = value }
-        case "link": if link.isEmpty, value.hasPrefix("http") { link = value }
+        case "link": if link.isEmpty, !value.isEmpty { link = value }
         case "guid", "id": if guid.isEmpty { guid = value }
         case "pubdate", "published", "updated", "date": if dateRaw.isEmpty { dateRaw = value }
         case "description", "summary", "encoded", "content":
