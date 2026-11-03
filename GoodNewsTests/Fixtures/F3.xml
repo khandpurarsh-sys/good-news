@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title>CDATA Test</title><link>https://example.net</link><description>x</description>
+<item>
+<title><![CDATA[Minister says budget "on track" despite delays]]></title>
+<link>https://example.net/cdata-301</link>
+<description>Spending is up 4% &amp; revenue is steady, officials said.</description>
+<pubDate>Mon, 02 Nov 2026 10:00:00 +0530</pubDate>
+<guid>cdata-301</guid>
+</item>
+</channel></rss>
+Expected render: Minister says budget "on track" despite delays / Spending is up 4% & revenue is steady, officials said.

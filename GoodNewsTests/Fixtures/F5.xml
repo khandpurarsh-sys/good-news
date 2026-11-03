@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title> Dedup Test</title><link>https://example.net</link><description>x</description>
+<item><title>Duplicate guid A</title><link>https://example.net/dup-401</link><guid>dup-401</guid></item>
+<item><title>Duplicate guid A copy</title><link>https://example.net/dup-401</link><guid>dup-401</guid></item>
+<item><title>Same link different guid</title><link>https://example.net/dup-402</link><guid>guid-402a</guid></item>
+<item><title>Same link different guid copy</title><link>https://example.net/dup-402</link><guid>guid-402b</guid></item>
+<item><title>No guid item</title><link>https://example.net/noguid-403</link></item>
+</channel></rss>
+Expected: 3 rendered items (dup-401 once, dup-402 once, noguid-403 once).

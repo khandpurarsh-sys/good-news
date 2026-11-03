@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title>Long Title Test</title><link>https://example.net</link><description>x</description>
+<item><title>Extremely long headline about a municipal committee that has announced a comprehensive multi-year plan to renovate every ageing footbridge across the entire northern district starting next spring</title>
+<link>https://example.net/long-501</link><guid>long-501</guid>
+<pubDate>Mon, 02 Nov 2026 09:00:00 +0530</pubDate></item>
+</channel></rss>
+Expected: ellipsized at layout limit; no overflow; timestamp still visible.

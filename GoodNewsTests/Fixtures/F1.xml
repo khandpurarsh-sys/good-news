@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>Example News - India</title>
+<link>https://example.com/india</link>
+<description>Synthetic test feed</description>
+<item>
+<title>City council approves riverside park plan</title>
+<link>https://example.com/india/park-plan-101</link>
+<description>Councillors voted 12-3 to fund the first phase of the project.</description>
+<pubDate>Mon, 02 Nov 2026 09:15:00 +0530</pubDate>
+<guid>https://example.com/india/park-plan-101</guid>
+</item>
+<item>
+<title>Local team wins inter-district cricket final</title>
+<link>https://example.com/india/cricket-final-102</link>
+<description>A late partnership sealed a four-wicket win on Sunday.</description>
+<pubDate>Mon, 02 Nov 2026 08:40:00 +0530</pubDate>
+<guid>https://example.com/india/cricket-final-102</guid>
+</item>
+<item>
+<title>New night bus routes begin trial run</title>
+<link>https://example.com/india/night-bus-103</link>
+<description>Three routes will run hourly between midnight and 4 am.</description>
+<pubDate>Mon, 02 Nov 2026 07:05:00 +0530</pubDate>
+<guid>https://example.com/india/night-bus-103</guid>
+</item>
+<item>
+<title>Public library extends weekend hours</title>
+<link>https://example.com/india/library-hours-104</link>
+<description>The central branch will stay open two hours longer on Saturdays.</description>
+<pubDate>Sun, 01 Nov 2026 18:30:00 +0530</pubDate>
+<guid>https://example.com/india/library-hours-104</guid>
+</item>
+<item>
+<title>Farmers market adds winter stalls</title>
+<link>https://example.com/india/market-winter-105</link>
+<description>Organisers expect twenty new vendors through January.</description>
+<pubDate>Sun, 01 Nov 2026 12:00:00 +0530</pubDate>
+<guid>https://example.com/india/market-winter-105</guid>
+</item>
+</channel>
+</rss>

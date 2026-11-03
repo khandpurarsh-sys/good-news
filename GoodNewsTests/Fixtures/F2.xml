@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>Example World Wire</title>
+<link href="https://example.org/world"/>
+<updated>2026-11-02T06:00:00Z</updated>
+<entry>
+<title>Coastal towns prepare for storm season</title>
+<link href="https://example.org/world/storm-season-201"/>
+<updated>2026-11-02T05:30:00Z</updated>
+<summary>Harbour authorities issued new mooring guidelines this week.</summary>
+<id>urn:example:201</id>
+</entry>
+<entry>
+<title>Regional rail line reopens after repairs</title>
+<link href="https://example.org/world/rail-reopen-202"/>
+<updated>2026-11-01T22:10:00Z</updated>
+<summary>Services resume on the northern corridor after six weeks.</summary>
+<id>urn:example:202</id>
+</entry>
+</feed>
