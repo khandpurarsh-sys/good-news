@@ -9,4 +9,3 @@
 <item><title>Invalid date</title><link>https://example.net/d4</link>
 <pubDate>yesterdayish</pubDate><guid>d4</guid></item>
 </channel></rss>
-Expected: d1/d2 parsed and ordered; d3/d4 kept, sorted after dated items, no crash.
