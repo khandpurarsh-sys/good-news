@@ -3,4 +3,3 @@
 <title>Broken Feed</title><link>https://example.net</link>
 <item><title>Unclosed item</title><link>https://example.net/broken-601</link>
 </channel></rss>
-Expected: parse error caught; feed marked failed; other feeds unaffected.
