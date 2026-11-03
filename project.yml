@@ -19,7 +19,7 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.arsh.goodnews
-        GENERATE_INFOPLIST: YES
+        GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: "Good News!"
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
@@ -36,7 +36,6 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.arsh.goodnews.widget
-        GENERATE_INFOPLIST: NO
         INFOPLIST_FILE: GoodNewsWidget/Info.plist
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"
     dependencies:
@@ -49,8 +48,10 @@ targets:
       - path: GoodNewsTests
     settings:
       base:
-        GENERATE_INFOPLIST: YES
+        GENERATE_INFOPLIST_FILE: YES
         PRODUCT_BUNDLE_IDENTIFIER: com.arsh.goodnews.tests
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/GoodNews.app/GoodNews
+        BUNDLE_LOADER: $(TEST_HOST)
     dependencies:
       - target: GoodNews
 schemes:
